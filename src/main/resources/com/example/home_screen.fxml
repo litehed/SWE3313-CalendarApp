@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.HomeController" stylesheets="@mobile-styles.css">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox styleClass="top-bar" prefHeight="70">
+            <Label text="StudyFlow" styleClass="app-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="⚙️" styleClass="settings-button" onAction="#handleSettings"/>
+        </HBox>
+    </top>
+
+    <!-- MAIN CONTENT - Mobile Cards Layout -->
+    <center>
+        <VBox styleClass="main-content" spacing="15">
+            <!-- Progress Card -->
+            <VBox styleClass="card progress-card">
+                <Label text="📊 Weekly Progress" styleClass="card-title"/>
+                <Label fx:id="progressText" text="75% Complete" styleClass="card-content"/>
+            </VBox>
+
+            <!-- Today's Tasks Card -->
+            <VBox styleClass="card tasks-card">
+                <Label text="✅ Today's Tasks" styleClass="card-title"/>
+                <Label fx:id="tasksText" text="3 of 5 Completed" styleClass="card-content"/>
+            </VBox>
+
+            <!-- Smart Suggestion Card -->
+            <VBox styleClass="card suggestion-card">
+                <Label text="💡 Smart Suggestion" styleClass="card-title"/>
+                <Label fx:id="suggestionText" text="2 hours free - Study Calculus?" styleClass="card-content"/>
+            </VBox>
+
+            <!-- Upcoming Deadlines Card -->
+            <VBox styleClass="card deadlines-card">
+                <Label text="📅 Upcoming Deadlines" styleClass="card-title"/>
+                <Label fx:id="deadlinesText" text="Physics HW - Tomorrow\nMath Quiz - Friday" styleClass="card-content"/>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- BOTTOM NAVIGATION - Mobile Style -->
+    <bottom>
+        <VBox>
+            <!-- Floating Action Button -->
+            <HBox styleClass="fab-container">
+                <Button text="+" styleClass="fab-button" onAction="#handleAddTask"/>
+            </HBox>
+
+            <!-- Bottom Navigation Bar -->
+            <HBox styleClass="bottom-nav" spacing="20">
+                <VBox styleClass="nav-item">
+                    <Label text="🏠" styleClass="nav-icon"/>
+                    <Label text="Home" styleClass="nav-label"/>
+                </VBox>
+                <VBox styleClass="nav-item">
+                    <Label text="📝" styleClass="nav-icon"/>
+                    <Label text="Tasks" styleClass="nav-label"/>
+                </VBox>
+                <VBox styleClass="nav-item">
+                    <Label text="📅" styleClass="nav-icon"/>
+                    <Label text="Calendar" styleClass="nav-label"/>
+                </VBox>
+                <VBox styleClass="nav-item">
+                    <Label text="👤" styleClass="nav-icon"/>
+                    <Label text="Profile" styleClass="nav-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
