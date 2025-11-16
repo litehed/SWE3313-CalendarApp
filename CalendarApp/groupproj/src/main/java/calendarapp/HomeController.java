@@ -3,12 +3,11 @@ package calendarapp;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-public class PrimaryController implements Initializable{
+public class HomeController implements Initializable{
 
     @FXML
     private Label progressText;
