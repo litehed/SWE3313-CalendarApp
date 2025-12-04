@@ -126,3 +126,57 @@ BorderPane {
     -fx-max-width: 60px;
     -fx-max-height: 60px;
 }
+.help-button {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-padding: 8px;
+    -fx-background-radius: 50%;
+    -fx-min-width: 40px;
+    -fx-min-height: 40px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.help-button:hover {
+    -fx-background-color: #3A80D2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 8, 0, 0, 3);
+}
+
+/* Help Menu / Popup */
+.help-menu {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 5);
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+}
+
+.help-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50;
+    -fx-padding: 0 0 10px 0;
+}
+
+.help-content {
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495E;
+    -fx-wrap-text: true;
+    -fx-line-spacing: 5px;
+}
+
+.close-help-button {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+}
+
+.close-help-button:hover {
+    -fx-background-color: #3A80D2;
+}
