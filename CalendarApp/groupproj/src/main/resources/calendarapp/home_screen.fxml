@@ -15,6 +15,7 @@
         <HBox styleClass="top-bar" prefHeight="70">
             <Label text="StudyFlow" styleClass="app-title"/>
             <Region HBox.hgrow="ALWAYS"/>
+            <Button text="❓" styleClass="help-button" onAction="#handleHelp"/>
             <Button text="⚙️" styleClass="settings-button" onAction="#handleSettings"/>
         </HBox>
     </top>
