@@ -1,12 +1,13 @@
 package calendarapp;
 
+import java.io.File;
+import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -20,6 +21,10 @@ public class App extends Application {
         scene = new Scene(loadFXML("home_screen"), 360, 640);
         stage.setScene(scene);
         stage.show();
+        File dir = new File("saves");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
     }
 
     static void setRoot(String fxml) throws IOException {
