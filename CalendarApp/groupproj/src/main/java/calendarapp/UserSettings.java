@@ -1,9 +1,14 @@
 package calendarapp;
 
+import com.google.gson.annotations.SerializedName;
+
 public class UserSettings
 {
+    @SerializedName("notificationEnabled")
     private boolean notificationEnabled;
+    @SerializedName("colorTheme")
     private String colorTheme;
+    @SerializedName("studySessionLength_Minutes")
     private int studySessionLength_Minutes;
 
     //constructor

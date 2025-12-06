@@ -5,6 +5,6 @@ module calendarapp {
     requires com.calendarfx.view;
     requires com.google.gson;
 
-    opens calendarapp to javafx.fxml;
+    opens calendarapp to javafx.fxml, com.google.gson;
     exports calendarapp;
 }
