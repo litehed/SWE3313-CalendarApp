@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendarapp.CalendarController">
+    <top>
+        <Label text="Place Calendar Here" BorderPane.alignment="CENTER" />
+    </top>
+    <bottom>
+        <HBox spacing="20" styleClass="bottom-nav" BorderPane.alignment="BOTTOM_CENTER">
+            <VBox onMouseClicked="#goHome" styleClass="nav-item">
+                <Label styleClass="nav-icon" text="🏠" />
+                <Label styleClass="nav-label" text="Home" />
+            </VBox>
+            <VBox onMouseClicked="#goTasks" styleClass="nav-item">
+                <Label styleClass="nav-icon" text="📝" />
+                <Label styleClass="nav-label" text="Tasks" />
+            </VBox>
+            <VBox onMouseClicked="#goCalendar" styleClass="nav-item">
+                <Label styleClass="nav-icon" text="📅" />
+                <Label styleClass="nav-label" text="Calendar" />
+            </VBox>
+            <VBox onMouseClicked="#goProfile" styleClass="nav-item">
+                <Label styleClass="nav-icon" text="👤" />
+                <Label styleClass="nav-label" text="Profile" />
+            </VBox>
+        </HBox>
+    </bottom>
+</BorderPane>

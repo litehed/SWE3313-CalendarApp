@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -54,20 +56,7 @@ public class HomeController implements Initializable {
     @FXML
     private void handleSettings(ActionEvent event) {
         System.out.println("Settings button clicked!");
-        try {
-            // Load settings screen
-            Parent settingsRoot = FXMLLoader.load(getClass().getResource("settings_screen.fxml"));
-
-            // Get current stage and set new scene
-            Node source = (Node) event.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
-
-            stage.setScene(new Scene(settingsRoot));
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        switchScene(event, "settings_screen.fxml");
     }
 
     @FXML
@@ -154,4 +143,37 @@ public class HomeController implements Initializable {
             popup.show(stage);
         }
     }
+
+    @FXML
+    private void goHome(MouseEvent event) {
+        System.out.println("Home button clicked!");
+    }
+
+    @FXML
+    private void goTasks(MouseEvent event) {
+        System.out.println("Tasks button clicked!");
+    }
+
+    @FXML
+    private void goCalendar(MouseEvent event) {
+        System.out.println("Calendar button clicked!");
+        switchScene(event, "calendar_screen.fxml");
+    }
+
+    @FXML
+    private void goProfile(MouseEvent event) {
+        System.out.println("Profile button clicked!");
+    }
+
+    private void switchScene(Event event, String fxmlFile) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

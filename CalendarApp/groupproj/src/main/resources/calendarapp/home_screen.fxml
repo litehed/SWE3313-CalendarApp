@@ -2,49 +2,47 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.Insets?>
-<?import com.calendarfx.view.CalendarView?>
 
-
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="calendarapp.HomeController" stylesheets="@mobile-styles.css">
+<BorderPane stylesheets="@mobile-styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendarapp.HomeController" prefWidth="360" prefHeight="640">
 
     <!-- TOP BAR -->
     <top>
-        <HBox styleClass="top-bar" prefHeight="70">
-            <Label text="StudyFlow" styleClass="app-title"/>
-            <Region HBox.hgrow="ALWAYS"/>
-            <Button text="❓" styleClass="help-button" onAction="#handleHelp"/>
-            <Button text="⚙️" styleClass="settings-button" onAction="#handleSettings"/>
+        <HBox prefHeight="70" styleClass="top-bar">
+            <Label styleClass="app-title" text="StudyFlow" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#handleHelp" styleClass="help-button" text="❓" />
+            <Button onAction="#handleSettings" styleClass="settings-button" text="⚙" />
         </HBox>
     </top>
 
     <!-- MAIN CONTENT - Mobile Cards Layout -->
     <center>
-        <VBox styleClass="main-content" spacing="15">
+        <VBox spacing="15" styleClass="main-content">
             <!-- Progress Card -->
             <VBox styleClass="card progress-card">
-                <Label text="📊 Weekly Progress" styleClass="card-title"/>
-                <Label fx:id="progressText" text="75% Complete" styleClass="card-content"/>
+                <Label styleClass="card-title" text="📊 Weekly Progress" />
+                <Label fx:id="progressText" styleClass="card-content" text="75% Complete" />
             </VBox>
 
             <!-- Today's Tasks Card -->
             <VBox styleClass="card tasks-card">
-                <Label text="✅ Today's Tasks" styleClass="card-title"/>
-                <Label fx:id="tasksText" text="3 of 5 Completed" styleClass="card-content"/>
+                <Label styleClass="card-title" text="✅ Today's Tasks" />
+                <Label fx:id="tasksText" styleClass="card-content" text="3 of 5 Completed" />
             </VBox>
 
             <!-- Smart Suggestion Card -->
             <VBox styleClass="card suggestion-card">
-                <Label text="💡 Smart Suggestion" styleClass="card-title"/>
-                <Label fx:id="suggestionText" text="2 hours free - Study Calculus?" styleClass="card-content"/>
+                <Label styleClass="card-title" text="💡 Smart Suggestion" />
+                <Label fx:id="suggestionText" styleClass="card-content"
+                    text="2 hours free - Study Calculus?" />
             </VBox>
 
             <!-- Upcoming Deadlines Card -->
             <VBox styleClass="card deadlines-card">
-                <Label text="📅 Upcoming Deadlines" styleClass="card-title"/>
-                <Label fx:id="deadlinesText" text="Physics HW - Tomorrow\nMath Quiz - Friday" styleClass="card-content"/>
+                <Label styleClass="card-title" text="📅 Upcoming Deadlines" />
+                <Label fx:id="deadlinesText" styleClass="card-content"
+                    text="Physics HW - Tomorrow\nMath Quiz - Friday" />
             </VBox>
         </VBox>
     </center>
@@ -54,26 +52,26 @@
         <VBox>
             <!-- Floating Action Button -->
             <HBox styleClass="fab-container">
-                <Button text="+" styleClass="fab-button" onAction="#handleAddTask"/>
+                <Button onAction="#handleAddTask" styleClass="fab-button" text="+" />
             </HBox>
 
             <!-- Bottom Navigation Bar -->
-            <HBox styleClass="bottom-nav" spacing="20">
-                <VBox styleClass="nav-item">
-                    <Label text="🏠" styleClass="nav-icon"/>
-                    <Label text="Home" styleClass="nav-label"/>
+            <HBox spacing="20" styleClass="bottom-nav">
+                <VBox onMouseClicked="#goHome" styleClass="nav-item">
+                    <Label styleClass="nav-icon" text="🏠" />
+                    <Label styleClass="nav-label" text="Home" />
                 </VBox>
-                <VBox styleClass="nav-item">
-                    <Label text="📝" styleClass="nav-icon"/>
-                    <Label text="Tasks" styleClass="nav-label"/>
+                <VBox onMouseClicked="#goTasks" styleClass="nav-item">
+                    <Label styleClass="nav-icon" text="📝" />
+                    <Label styleClass="nav-label" text="Tasks" />
                 </VBox>
-                <VBox styleClass="nav-item">
-                    <Label text="📅" styleClass="nav-icon"/>
-                    <Label text="Calendar" styleClass="nav-label"/>
+                <VBox onMouseClicked="#goCalendar" styleClass="nav-item">
+                    <Label styleClass="nav-icon" text="📅" />
+                    <Label styleClass="nav-label" text="Calendar" />
                 </VBox>
-                <VBox styleClass="nav-item">
-                    <Label text="👤" styleClass="nav-icon"/>
-                    <Label text="Profile" styleClass="nav-label"/>
+                <VBox onMouseClicked="#goProfile" styleClass="nav-item">
+                    <Label styleClass="nav-icon" text="👤" />
+                    <Label styleClass="nav-label" text="Profile" />
                 </VBox>
             </HBox>
         </VBox>
