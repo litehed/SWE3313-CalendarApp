@@ -14,6 +14,7 @@ public class SaveManager {
     private static final String userFilePath = "saves/user_settings.json";
     private static final String calendarFilePath = "saves/calendar_data.json";
 
+    // Saves the user settings to a json file based on annotations in UserSettings
     public static void saveUserSettings(UserSettings settings) {
         try (FileWriter writer = new FileWriter(userFilePath)) {
             gson.toJson(settings, writer);
@@ -22,6 +23,7 @@ public class SaveManager {
         }
     }
 
+    // Loads the user settings from a json file, or creates new settings if none exist
     public static UserSettings loadUserSettings() {
         try {
             File file = new File(userFilePath);
@@ -37,6 +39,7 @@ public class SaveManager {
         }
     }
 
+    // Saves the calendar data to a json file
     public static void saveCalendarData(Calendar data) {
         try (FileWriter writer = new FileWriter(calendarFilePath)) {
             gson.toJson(data, writer);
