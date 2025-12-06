@@ -29,14 +29,6 @@ public class SettingsController implements Initializable{
 
     private UserSettings settings;
 
-    //constructor
-    public SettingsController() {
-    } //waiting for storage
-
-    //methods
-    public UserSettings getSettings() {
-        return settings;
-    }
 
     public void toggleNotifications(boolean enabled) throws IOException {
         settings.setNotificationEnabled(enabled);
@@ -103,3 +95,4 @@ public class SettingsController implements Initializable{
         });
     }
 }
+
