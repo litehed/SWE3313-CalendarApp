@@ -14,8 +14,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 public class HomeController implements Initializable {
@@ -53,19 +55,21 @@ public class HomeController implements Initializable {
     private void handleSettings(ActionEvent event) {
         System.out.println("Settings button clicked!");
         try {
+            // Load settings screen
             Parent settingsRoot = FXMLLoader.load(getClass().getResource("settings_screen.fxml"));
 
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
+            // Get current stage and set new scene
+            Node source = (Node) event.getSource();
+            Stage stage = (Stage) source.getScene().getWindow();
 
-        stage.setScene(new Scene(settingsRoot));
-        stage.show();
+            stage.setScene(new Scene(settingsRoot));
+            stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
+
     @FXML
     private void handleHelp() {
         System.out.println("Help button clicked!");
@@ -79,41 +83,63 @@ public class HomeController implements Initializable {
         helpMenu.setSpacing(15);
         helpMenu.setPadding(new Insets(20));
         helpMenu.setMaxWidth(300);
+        helpMenu.setStyle(
+                "-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 8; -fx-background-radius: 8;");
 
         // Title
-        Label title = new Label("📚 StudyFlow Help");
+        Label title = new Label("StudyFlow Help");
         title.getStyleClass().add("help-title");
 
-        // Content - Use regular string concatenation instead of text block
-        String helpText = "Welcome to StudyFlow!\n\n" +
-                "📋 **Features:**\n" +
-                "• Create and manage tasks (assignments, quizzes, exams)\n" +
-                "• Automatic calendar scheduling\n" +
-                "• Smart study session suggestions\n" +
-                "• Progress tracking\n\n" +
-                "🎯 **How to Use:**\n" +
-                "1. Click '+' to add new tasks\n" +
-                "2. View deadlines in the calendar\n" +
-                "3. Accept/reject study session suggestions\n" +
-                "4. Track your weekly progress\n\n" +
-                "⚙️ **Settings:**\n" +
-                "• Toggle notifications on/off\n" +
-                "• Change theme colors\n" +
-                "• Adjust study session length\n\n" +
-                "Questions? Contact support@studyflow.app";
+        // Text content
+        TextFlow helpContent = new TextFlow();
 
-        Label content = new Label(helpText);
+        Text intro = new Text("Welcome to StudyFlow!\n\n");
+        intro.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
+
+        Text featuresTitle = new Text("Features:\n");
+        featuresTitle.setStyle("-fx-underline: true; -fx-font-size: 12;");
+
+        Text features = new Text(
+                "• Create and manage tasks (assignments, quizzes, exams)\n" +
+                        "• Automatic calendar scheduling\n" +
+                        "• Smart study session suggestions\n" +
+                        "• Progress tracking\n\n");
+
+        Text howToTitle = new Text("How to Use:\n");
+        howToTitle.setStyle("-fx-underline: true; -fx-font-size: 12;");
+
+        Text howTo = new Text(
+                "1. Click '+' to add new tasks\n" +
+                        "2. View deadlines in the calendar\n" +
+                        "3. Accept/reject study session suggestions\n" +
+                        "4. Track your weekly progress\n\n");
+
+        Text settingsTitle = new Text("Settings:\n");
+        settingsTitle.setStyle("-fx-underline: true; -fx-font-size: 12;");
+
+        Text settings = new Text(
+                "• Toggle notifications on/off\n" +
+                        "• Change theme colors\n" +
+                        "• Adjust study session length\n\n");
+
+        helpContent.getChildren().addAll(intro, featuresTitle, features, howToTitle, howTo, settingsTitle, settings);
+
+        Label content = new Label();
+        content.setGraphic(helpContent);
         content.getStyleClass().add("help-content");
         content.setWrapText(true);
 
         // Close button
         Button closeButton = new Button("Got it!");
         closeButton.getStyleClass().add("close-help-button");
+
+        // Create popup
+        Popup popup = new Popup();
+        popup.getContent().add(helpMenu);
+        popup.setAutoHide(true);
+
         closeButton.setOnAction(e -> {
-            // Remove help menu from root
-            if (rootPane != null) {
-                rootPane.getChildren().remove(helpMenu);
-            }
+            popup.hide();
         });
 
         // Add everything to help menu
@@ -122,28 +148,10 @@ public class HomeController implements Initializable {
         // Center the help menu
         helpMenu.setAlignment(Pos.CENTER);
 
-        // Add to root pane (make sure your FXML has a StackPane as root)
-        if (rootPane != null) {
-            // Center the menu
-            StackPane.setAlignment(helpMenu, Pos.CENTER);
-            rootPane.getChildren().add(helpMenu);
-        } else {
-            // Alternative: Create a popup stage
-            createHelpPopup(helpMenu);
+        Stage stage = (Stage) progressText.getScene().getWindow();
+
+        if (stage != null) {
+            popup.show(stage);
         }
     }
-    private void createHelpPopup(VBox helpMenu) {
-        // Create a new stage for the help popup
-        javafx.stage.Stage helpStage = new javafx.stage.Stage();
-        helpStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
-        helpStage.setTitle("StudyFlow Help");
-        helpStage.setResizable(false);
-
-        javafx.scene.Scene scene = new javafx.scene.Scene(helpMenu, 320, 450);
-        scene.getStylesheets().add(getClass().getResource("mobile-styles.css").toExternalForm());
-        helpStage.setScene(scene);
-        helpStage.show();
-    }
-
 }
-
