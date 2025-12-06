@@ -69,81 +69,81 @@ public class HomeController implements Initializable {
     @FXML
     private void handleHelp() {
         System.out.println("Help button clicked!");
-        // showHelpMenu();
+        showHelpMenu();
     }
 
-    // private void showHelpMenu() {
-    //     // Create help content
-    //     VBox helpMenu = new VBox();
-    //     helpMenu.getStyleClass().add("help-menu");
-    //     helpMenu.setSpacing(15);
-    //     helpMenu.setPadding(new Insets(20));
-    //     helpMenu.setMaxWidth(300);
+    private void showHelpMenu() {
+        // Create help content
+        VBox helpMenu = new VBox();
+        helpMenu.getStyleClass().add("help-menu");
+        helpMenu.setSpacing(15);
+        helpMenu.setPadding(new Insets(20));
+        helpMenu.setMaxWidth(300);
 
-    //     // Title
-    //     Label title = new Label("📚 StudyFlow Help");
-    //     title.getStyleClass().add("help-title");
+        // Title
+        Label title = new Label("📚 StudyFlow Help");
+        title.getStyleClass().add("help-title");
 
-    //     // Content - Use regular string concatenation instead of text block
-    //     String helpText = "Welcome to StudyFlow!\n\n" +
-    //             "📋 **Features:**\n" +
-    //             "• Create and manage tasks (assignments, quizzes, exams)\n" +
-    //             "• Automatic calendar scheduling\n" +
-    //             "• Smart study session suggestions\n" +
-    //             "• Progress tracking\n\n" +
-    //             "🎯 **How to Use:**\n" +
-    //             "1. Click '+' to add new tasks\n" +
-    //             "2. View deadlines in the calendar\n" +
-    //             "3. Accept/reject study session suggestions\n" +
-    //             "4. Track your weekly progress\n\n" +
-    //             "⚙️ **Settings:**\n" +
-    //             "• Toggle notifications on/off\n" +
-    //             "• Change theme colors\n" +
-    //             "• Adjust study session length\n\n" +
-    //             "Questions? Contact support@studyflow.app";
+        // Content - Use regular string concatenation instead of text block
+        String helpText = "Welcome to StudyFlow!\n\n" +
+                "📋 **Features:**\n" +
+                "• Create and manage tasks (assignments, quizzes, exams)\n" +
+                "• Automatic calendar scheduling\n" +
+                "• Smart study session suggestions\n" +
+                "• Progress tracking\n\n" +
+                "🎯 **How to Use:**\n" +
+                "1. Click '+' to add new tasks\n" +
+                "2. View deadlines in the calendar\n" +
+                "3. Accept/reject study session suggestions\n" +
+                "4. Track your weekly progress\n\n" +
+                "⚙️ **Settings:**\n" +
+                "• Toggle notifications on/off\n" +
+                "• Change theme colors\n" +
+                "• Adjust study session length\n\n" +
+                "Questions? Contact support@studyflow.app";
 
-    //     Label content = new Label(helpText);
-    //     content.getStyleClass().add("help-content");
-    //     content.setWrapText(true);
+        Label content = new Label(helpText);
+        content.getStyleClass().add("help-content");
+        content.setWrapText(true);
 
-    //     // Close button
-    //     Button closeButton = new Button("Got it!");
-    //     closeButton.getStyleClass().add("close-help-button");
-    //     closeButton.setOnAction(e -> {
-    //         // Remove help menu from root
-    //         if (rootPane != null) {
-    //             rootPane.getChildren().remove(helpMenu);
-    //         }
-    //     });
+        // Close button
+        Button closeButton = new Button("Got it!");
+        closeButton.getStyleClass().add("close-help-button");
+        closeButton.setOnAction(e -> {
+            // Remove help menu from root
+            if (rootPane != null) {
+                rootPane.getChildren().remove(helpMenu);
+            }
+        });
 
-    //     // Add everything to help menu
-    //     helpMenu.getChildren().addAll(title, content, closeButton);
+        // Add everything to help menu
+        helpMenu.getChildren().addAll(title, content, closeButton);
 
-    //     // Center the help menu
-    //     helpMenu.setAlignment(Pos.CENTER);
+        // Center the help menu
+        helpMenu.setAlignment(Pos.CENTER);
 
-    //     // Add to root pane (make sure your FXML has a StackPane as root)
-    //     if (rootPane != null) {
-    //         // Center the menu
-    //         StackPane.setAlignment(helpMenu, Pos.CENTER);
-    //         rootPane.getChildren().add(helpMenu);
-    //     } else {
-    //         // Alternative: Create a popup stage
-    //         createHelpPopup(helpMenu);
-    //     }
-    // }
-    // private void createHelpPopup(VBox helpMenu) {
-    //     // Create a new stage for the help popup
-    //     javafx.stage.Stage helpStage = new javafx.stage.Stage();
-    //     helpStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
-    //     helpStage.setTitle("StudyFlow Help");
-    //     helpStage.setResizable(false);
+        // Add to root pane (make sure your FXML has a StackPane as root)
+        if (rootPane != null) {
+            // Center the menu
+            StackPane.setAlignment(helpMenu, Pos.CENTER);
+            rootPane.getChildren().add(helpMenu);
+        } else {
+            // Alternative: Create a popup stage
+            createHelpPopup(helpMenu);
+        }
+    }
+    private void createHelpPopup(VBox helpMenu) {
+        // Create a new stage for the help popup
+        javafx.stage.Stage helpStage = new javafx.stage.Stage();
+        helpStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+        helpStage.setTitle("StudyFlow Help");
+        helpStage.setResizable(false);
 
-    //     javafx.scene.Scene scene = new javafx.scene.Scene(helpMenu, 320, 450);
-    //     scene.getStylesheets().add(getClass().getResource("mobile-styles.css").toExternalForm());
-    //     helpStage.setScene(scene);
-    //     helpStage.show();
-    // }
+        javafx.scene.Scene scene = new javafx.scene.Scene(helpMenu, 320, 450);
+        scene.getStylesheets().add(getClass().getResource("mobile-styles.css").toExternalForm());
+        helpStage.setScene(scene);
+        helpStage.show();
+    }
 
 }
 
