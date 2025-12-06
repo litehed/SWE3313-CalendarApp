@@ -8,8 +8,6 @@ public class Task
     public enum Priority { LOW, MEDIUM, HIGH }
     public enum Status { NOT_STARTED, IN_PROGRESS, COMPLETED }
 
-    private String id;
-    private String userId;
     private String name;
     private String description;
     private LocalDate dueDate;
@@ -18,10 +16,7 @@ public class Task
     private Status status;
 
     //constructor
-    public Task(String id, String userId, String name, String description,
-                LocalDate dueDate, TaskType type, Priority priority) {
-        this.id = id;
-        this.userId = userId;
+    public Task(String name, String description, LocalDate dueDate, TaskType type, Priority priority) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
@@ -29,11 +24,6 @@ public class Task
         this.priority = priority;
         this.status = Status.NOT_STARTED; }
 
-    //getters
-    public String getId() {
-        return id; }
-    public String getUserId() {
-        return userId; }
     public String getName() {
         return name; }
     public String getDescription() {
@@ -61,3 +51,4 @@ public class Task
     public void setStatus(Status status) {
         this.status = status; }
 }
+
