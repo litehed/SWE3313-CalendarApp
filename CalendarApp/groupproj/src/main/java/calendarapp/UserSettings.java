@@ -14,7 +14,7 @@ public class UserSettings
     //constructor
     public UserSettings() {
         notificationEnabled = true;
-        colorTheme = "Default";
+        colorTheme = "32a852";
         studySessionLength_Minutes = 60; }
 
     //getters
