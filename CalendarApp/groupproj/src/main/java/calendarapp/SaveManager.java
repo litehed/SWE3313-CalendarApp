@@ -3,6 +3,7 @@ package calendarapp;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.List;
 
 import com.calendarfx.model.Calendar;
 import com.google.gson.Gson;
@@ -40,11 +41,28 @@ public class SaveManager {
     }
 
     // Saves the calendar data to a json file
-    public static void saveCalendarData(Calendar data) {
+    public static void saveCalendarData() {
         try (FileWriter writer = new FileWriter(calendarFilePath)) {
-            gson.toJson(data, writer);
+            List<Task> tasks = TaskController.getTasks();
+            gson.toJson(tasks, writer);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public static List<Task> loadCalendarData() {
+        try {
+            File file = new File(calendarFilePath);
+            if (!file.exists()) {
+                return List.of();
+            }
+            try (FileReader reader = new FileReader(file)) {
+                Task[] tasks = gson.fromJson(reader, Task[].class);
+                return List.of(tasks);
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to load calendar data: " + e.getMessage());
+            return List.of();
         }
     }
 }
