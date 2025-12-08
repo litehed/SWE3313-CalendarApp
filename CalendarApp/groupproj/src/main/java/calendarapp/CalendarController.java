@@ -103,9 +103,6 @@ public class CalendarController implements Initializable {
         });
     }
 
-    // adding more methods here to find free time blocks during the day for more
-    // study sessions
-
     @FXML
     private void goHome(MouseEvent event) {
         System.out.println("Home button clicked!");
