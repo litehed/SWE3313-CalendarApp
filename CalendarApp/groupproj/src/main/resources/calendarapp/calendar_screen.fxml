@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane stylesheets="@mobile-styles.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendarapp.CalendarController">
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="calendarapp.CalendarController" fx:id="root">
     <top>
-        <Label text="Place Calendar Here" BorderPane.alignment="CENTER" />
+        <Label text="Study Calendar" BorderPane.alignment="CENTER" />
     </top>
     <bottom>
         <HBox spacing="20" styleClass="bottom-nav" BorderPane.alignment="BOTTOM_CENTER">
