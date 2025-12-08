@@ -8,15 +8,12 @@ public class TaskController
     private static Map<String, Task> entryMap = new HashMap<>();
 
     public static void addTask(Task t) {
-        tasks.add(t);
-        /* save (saveCalendarData() here?) */ }
+        tasks.add(t); }
 
-    public static void updateTask(Task t) {
-        /* save */ }
+    public static void updateTask(Task t) { }
 
     public static void deleteTask(Task t) {
-        tasks.remove(t);
-        /* save */ }
+        tasks.remove(t); }
     
     public static List<Task> getTasks() {
         return tasks; }
@@ -28,5 +25,6 @@ public class TaskController
         return entryMap.get(id); }
 
 }
+
 
 
